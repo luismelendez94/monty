@@ -1,12 +1,12 @@
 #include "monty.h"
 
 /**
- * readBuffer - read buffer line by line
- * @fd: file descriptor
- * @buffer: buffer
- * @inputln: file line read
+ * readBuffer - Read buffer line by line
+ * @fd: File descriptor
+ * @buffer: Buffer
+ * @inputln: File line read
+ *
  */
-
 void readBuffer(FILE *fd, char *buffer, ssize_t inputln)
 {
 	char *delim = " \n", *token = NULL;
@@ -23,7 +23,11 @@ void readBuffer(FILE *fd, char *buffer, ssize_t inputln)
 			if (strcmp(token, "push") == 0)
 			{
 				token = strtok(NULL, delim);
-				_isanum(token, line);
+				if (token == NULL || _isanum(token, line))
+				{
+					printf("L%d: usage: push integer\n", line);
+					exit(EXIT_FAILURE);
+				}
 				addnode(&head, atoi(token));
 			}
 			else
