@@ -59,6 +59,7 @@ void freeList(stack_t *head);
 int _isanum(char *str, int line);
 void _pall(stack_t **head, unsigned int line);
 void _pint(stack_t **head, unsigned int line);
+void _pchar(stack_t **head, unsigned int line);
 void _nop(stack_t **head, unsigned int line);
 void _pop(stack_t **head, unsigned int line);
 void _swap(stack_t **head, unsigned int line);
