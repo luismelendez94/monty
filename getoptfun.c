@@ -11,6 +11,7 @@ void (*opfunc(char *token))(stack_t **stack, unsigned int line)
 	instruction_t inst[] = {
 		{"pall", _pall},
 		{"pint", _pint},
+		{"pchar", _pchar},
 		{"nop", _nop},
 		{"pop", _pop},
 		{"swap", _swap},
