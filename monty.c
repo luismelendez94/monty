@@ -13,7 +13,6 @@ int main(int argc, char *argv[])
 	ssize_t inputln;
 	size_t getSize = 1024;
 	char *buffer;
-	stack_t *head = NULL;
 
 	if (argc != 2)
 	{
@@ -42,7 +41,6 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 	readBuffer(fd, buffer, inputln);
-	freeList(head);
 	free(buffer);
 	fclose(fd);
 	return (0);

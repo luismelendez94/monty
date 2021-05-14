@@ -41,4 +41,5 @@ void readBuffer(FILE *fd, char *buffer, ssize_t inputln)
 		line++;
 		inputln = getline(&buffer, &getSize, fd);
 	}
+	freeList(head);
 }
