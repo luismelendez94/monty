@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- *_pint - prints the ascii value of element at top of stack
+ * _pchar - prints the ascii value of element at top of stack
  *@head: is the pointer to the first node
  *@line: number of the line
  */
@@ -9,7 +9,7 @@
 void _pchar(stack_t **head, unsigned int line)
 {
 	int n = (*head)->n;
-	char charValue = n+'0';
+	char charValue = n + '0';
 
 	if (!head)
 	{
