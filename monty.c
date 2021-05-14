@@ -10,7 +10,7 @@
 int main(int argc, char *argv[])
 {
 	FILE *fd;
-	ssize_t _read;
+	ssize_t inputln;
 	size_t getSize = 1024;
 	char *buffer;
 	stack_t *head = NULL;
@@ -34,14 +34,14 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 
-	_read = getline(&buffer, &getSize, fd);
-	if (_read == -1)
+	inputln = getline(&buffer, &getSize, fd);
+	if (inputln == -1)
 	{
 		free(buffer);
 		fclose(fd);
 		exit(EXIT_FAILURE);
 	}
-	readBuffer(fd, buffer, _read);
+	readBuffer(fd, buffer, inputln);
 	freeList(head);
 	free(buffer);
 	fclose(fd);
