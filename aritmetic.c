@@ -37,7 +37,7 @@ void _subInt(stack_t **headList, unsigned int lineNumber)
 
 	if (*headList == NULL || (*headList)->next == NULL)
 	{
-		printf("L%d: can't add, stack too short\n", line);
+		printf("L%d: can't add, stack too short\n", lineNumber);
 		exit(EXIT_FAILURE);
 	}
 

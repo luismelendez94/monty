@@ -1,11 +1,11 @@
 #include "monty.h"
 
 /**
- *opfunc - optcode to call its respective function
- *@token: token
- *Return: the pointer to its function
+ * opfunc - Verify optcode to call its respective function
+ * @token: Token with optcode
+ * Return: The pointer to its function
+ *
  */
-
 void (*opfunc(char *token))(stack_t **stack, unsigned int line)
 {
 	instruction_t inst[] = {
@@ -14,11 +14,11 @@ void (*opfunc(char *token))(stack_t **stack, unsigned int line)
 		{"nop", _nop},
 		{"pop", _pop},
 		{"swap", _swap},
-		{"add", _add},
-		{"sub", _sub},
-		{"div", _div},
-		{"mul", _mul},
-		{"mod", _mod},
+		{"add", _addInt},
+		{"sub", _subInt},
+		{"div", _divInt},
+		{"mul", _mulInt},
+		{"mod", _modInt},
 		{NULL, NULL}
 	};
 
