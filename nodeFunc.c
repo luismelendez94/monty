@@ -41,11 +41,12 @@ void _pint(stack_t **head, unsigned int line)
 	printf("%d\n", (*head)->n);
 }
 
+
 /**
- *_nop - a function that doesn't do shit
- *@head: is the pointer to the first node
- *@line: is the number of lines
- *Return: will return nothing (void)
+ *_nop - function will just pass to next opcode
+ *@head: pointer to the head node
+ *@line: number of lines
+ *Return: nothing (void)
  */
 
 void _nop(stack_t **head, unsigned int line)
@@ -54,6 +55,7 @@ void _nop(stack_t **head, unsigned int line)
 	(void)line;
 }
 
+p
 /**
  *_swap - will swap the first two elements of the stack
  *@head: is the pointer to the first node

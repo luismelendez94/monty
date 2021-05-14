@@ -17,25 +17,28 @@ void readBuffer(FILE *fd, char *buffer, ssize_t inputln)
 	while (inputln != EOF)
 	{
 		token = strtok(buffer, delim);
-		if (strcmp(token, "push") == 0)
+
+		if (token[0] != '#')
 		{
-			token = strtok(NULL, delim);
-			_isanum(token, line);
-			addnode(&head, atoi(token));
-			line++;
-		}
-		else
-		{
-			if (opfunc(token) != 0)
-				opfunc(token)(&head, line);
+			if (strcmp(token, "push") == 0)
+			{
+				token = strtok(NULL, delim);
+				_isanum(token, line);
+				addnode(&head, atoi(token));
+			}
 			else
 			{
-				freeList(head);
-				printf("L%d: unknown instruction %s\n", line, token);
-				exit(EXIT_FAILURE);
+				if (opfunc(token) != 0)
+					opfunc(token)(&head, line);
+				else
+				{
+					freeList(head);
+					printf("L%d: unknown instruction %s\n", line, token);
+					exit(EXIT_FAILURE);
+				}
 			}
-			line++;
 		}
+		line++;
 		inputln = getline(&buffer, &getSize, fd);
 	}
 }
