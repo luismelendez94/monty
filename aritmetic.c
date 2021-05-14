@@ -1,140 +1,138 @@
 #include "monty.h"
 
 /**
- * _add - add two
- * @head: pointer to head of stack
- * @line: line number
+ * _addInt - Adds the top two integers
+ * @headList: Pointer to head of stack
+ * @lineNumber: Number of the line
+ *
  */
-
-void _add(stack_t **head, unsigned int line)
+void _addInt(stack_t **headList, unsigned int lineNumber)
 {
-	stack_t *temp, *temp2;
+	stack_t *temp1, *temp2;
 
-	if (*head == NULL || (*head)->next == NULL)
+	if (*headList == NULL || (*headList)->next == NULL)
 	{
-		printf("L%d: can't add, stack too short\n", line);
+		printf("L%d: can't add, stack too short\n", lineNumber);
 		exit(EXIT_FAILURE);
 	}
 
-	temp = (*head)->next;
-	temp2 = *head;
+	temp1 = (*headList)->next;
+	temp2 = *headList;
 
-	temp->n = temp->n + temp2->n;
-	*head = (*head)->next;
-	(*head)->prev = NULL;
+	temp1->n = temp1->n + temp2->n;
+	*headList = (*headList)->next;
+	(*headList)->prev = NULL;
 	free(temp2);
 }
 
 /**
- * _sub - substract two
- * @head: pointer to head of stack
- * @line: line number
+ * _subInt - Substract the top two integers
+ * @headList: Pointer to head of stack
+ * @lineNumber: Number of the line
+ *
  */
-
-void _sub(stack_t **head, unsigned int line)
+void _subInt(stack_t **headList, unsigned int lineNumber)
 {
-	stack_t *temp, *temp2;
+	stack_t *temp1, *temp2;
 
-	if (*head == NULL || (*head)->next == NULL)
+	if (*headList == NULL || (*headList)->next == NULL)
 	{
 		printf("L%d: can't add, stack too short\n", line);
 		exit(EXIT_FAILURE);
 	}
 
-	temp = (*head)->next;
-	temp2 = *head;
+	temp1 = (*headList)->next;
+	temp2 = *headList;
 
-	temp->n = temp->n - temp2->n;
-	*head = (*head)->next;
-	(*head)->prev = NULL;
+	temp1->n = temp1->n - temp2->n;
+	*headList = (*headList)->next;
+	(*headList)->prev = NULL;
 	free(temp2);
 }
 
 /**
- * _div - divide two
- * @head: pointer to head of stack
- * @line: line number
+ * _divInt - Divide the top two integers
+ * @headList: Pointer to head of stack
+ * @lineNumber: Number of the line
+ *
  */
-
-void _div(stack_t **head, unsigned int line)
+void _divInt(stack_t **headList, unsigned int lineNumber)
 {
-	stack_t *temp, *temp2;
+	stack_t *temp1, *temp2;
 
-	if (*head == NULL || (*head)->next == NULL)
+	if (*headList == NULL || (*headList)->next == NULL)
 	{
-		printf("L%d: can't add, stack too short\n", line);
+		printf("L%d: can't add, stack too short\n", lineNumber);
 		exit(EXIT_FAILURE);
 	}
 
-	temp = (*head)->next;
-	temp2 = *head;
+	temp1 = (*headList)->next;
+	temp2 = *headList;
 
 	if (temp2->n == 0)
 	{
-		printf("L%d: division by zero\n", line);
+		printf("L%d: division by zero\n", lineNumber);
 		exit(EXIT_FAILURE);
 	}
 
-	temp->n = temp->n / temp2->n;
-	*head = (*head)->next;
-	(*head)->prev = NULL;
+	temp1->n = temp1->n / temp2->n;
+	*headList = (*headList)->next;
+	(*headList)->prev = NULL;
 	free(temp2);
 }
 
 /**
- * _mul - multiply two
- * @head: pointer to head of stack
- * @line: line number
+ * _mulInt - Multiply the top two integers
+ * @headList: pointer to head of stack
+ * @lineNumber: Number of the line
+ *
  */
-
-void _mul(stack_t **head, unsigned int line)
+void _mulInt(stack_t **headList, unsigned int lineNumber)
 {
-	stack_t *temp, *temp2;
+	stack_t *temp1, *temp2;
 
-	if (*head == NULL || (*head)->next == NULL)
+	if (*headList == NULL || (*headList)->next == NULL)
 	{
-		printf("L%d: can't add, stack too short\n", line);
+		printf("L%d: can't add, stack too short\n", lineNumber);
 		exit(EXIT_FAILURE);
 	}
 
-	temp = (*head)->next;
-	temp2 = *head;
+	temp1 = (*headList)->next;
+	temp2 = *headList;
 
-	temp->n = temp->n * temp2->n;
-	*head = (*head)->next;
-	(*head)->prev = NULL;
+	temp1->n = temp1->n * temp2->n;
+	*headList = (*headList)->next;
+	(*headList)->prev = NULL;
 	free(temp2);
 }
 
 /**
- * _mod - calculate modulo of two
- * @head: pointer to head of stack
- * @line: line number
+ * _modInt - Calculate module of the top two integers
+ * @headList: Pointer to head of stack
+ * @lineNumber: Number of the line
+ *
  */
-
-void _mod(stack_t **head, unsigned int line)
+void _modInt(stack_t **headList, unsigned int lineNumber)
 {
-	stack_t *temp, *temp2;
+	stack_t *temp1, *temp2;
 
-	if (*head == NULL || (*head)->next == NULL)
+	if (*headList == NULL || (*headList)->next == NULL)
 	{
-		printf("L%d: can't add, stack too short\n", line);
+		printf("L%d: can't add, stack too short\n", lineNumber);
 		exit(EXIT_FAILURE);
 	}
 
-	temp = (*head)->next;
-	temp2 = *head;
+	temp1 = (*headList)->next;
+	temp2 = *headList;
 
 	if (temp2->n == 0)
 	{
-		printf("L%d: division by zero\n", line);
+		printf("L%d: division by zero\n", lineNumber);
 		exit(EXIT_FAILURE);
 	}
 
-	temp->n = temp->n % temp2->n;
-	*head = (*head)->next;
-	(*head)->prev = NULL;
+	temp1->n = temp1->n % temp2->n;
+	*headList = (*headList)->next;
+	(*headList)->prev = NULL;
 	free(temp2);
 }
-
-
