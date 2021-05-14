@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
 		fclose(fd);
 		exit(EXIT_FAILURE);
 	}
-	checkbuffer(fd, buffer, _read);
+	readBuffer(fd, buffer, _read);
 	freeList(head);
 	free(buffer);
 	fclose(fd);
