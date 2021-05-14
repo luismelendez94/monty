@@ -117,11 +117,10 @@ void _pop(stack_t **head, unsigned int line)
 		*head = NULL;
 		free(delNode);
 	}
-
 	else
 	{
 		*head = (*head)->next;
-		(*head)->prev = NULL;
 		free(delNode);
+		(*head)->prev = NULL;
 	}
 }
