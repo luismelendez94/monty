@@ -55,6 +55,7 @@ void _nop(stack_t **head, unsigned int line)
 	(void)line;
 }
 
+
 /**
  *_swap - will swap the first two elements of the stack
  *@head: is the pointer to the first node
