@@ -19,9 +19,9 @@ int _isanum(char *str, int line)
 
     for (index = 0; str[index] != '\0'; index++)
     {
-        if (str[index] == '-'  str[index] == '0')
+        if (str[index] == '-' || str[index] == '0')
             continue;
-        if (str[index] < '0'  str[index] > '9')
+        if (str[index] < '0' || str[index] > '9')
         {
             fprintf(stderr, "L%d: usage: push integer\n", line);
             exit(EXIT_FAILURE);
