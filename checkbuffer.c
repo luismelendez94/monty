@@ -9,7 +9,7 @@
  */
 void readBuffer(FILE *fd, char *buffer, ssize_t inputln)
 {
-	char *delim = " \n", *token = NULL;
+	char *delim = " \n\t", *token = NULL;
 	stack_t *head = NULL;
 	int line = 1;
 	size_t getSize = 1024;
@@ -18,16 +18,12 @@ void readBuffer(FILE *fd, char *buffer, ssize_t inputln)
 	{
 		token = strtok(buffer, delim);
 
-		if (token[0] != '#')
+		if (token[0] != '#' || token != NULL)
 		{
 			if (strcmp(token, "push") == 0)
 			{
 				token = strtok(NULL, delim);
-				if (token == NULL || _isanum(token, line))
-				{
-					printf("L%d: usage: push integer\n", line);
-					exit(EXIT_FAILURE);
-				}
+				_isanum(token, line);
 				addnode(&head, atoi(token));
 			}
 			else
@@ -37,7 +33,7 @@ void readBuffer(FILE *fd, char *buffer, ssize_t inputln)
 				else
 				{
 					freeList(head);
-					printf("L%d: unknown instruction %s\n", line, token);
+					fprintf(stderr, "L%d: unknown instruction %s\n", line, token);
 					exit(EXIT_FAILURE);
 				}
 			}
@@ -45,4 +41,5 @@ void readBuffer(FILE *fd, char *buffer, ssize_t inputln)
 		line++;
 		inputln = getline(&buffer, &getSize, fd);
 	}
+	freeList(head);
 }
