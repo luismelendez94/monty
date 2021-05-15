@@ -10,8 +10,7 @@
 int main(int argc, char *argv[])
 {
 	FILE *fd;
-	ssize_t inputln;
-	size_t getSize = 1024;
+/*	ssize_t inputln;	*/
 	char *buffer;
 
 	if (argc != 2)
@@ -33,14 +32,7 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 
-	inputln = getline(&buffer, &getSize, fd);
-	if (inputln == -1)
-	{
-		free(buffer);
-		fclose(fd);
-		exit(EXIT_FAILURE);
-	}
-	readBuffer(fd, buffer, inputln);
+	readBuffer(fd, buffer);
 	free(buffer);
 	fclose(fd);
 	return (0);

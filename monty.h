@@ -69,7 +69,7 @@ void _subInt(stack_t **headList, unsigned int lineNumber);
 void _divInt(stack_t **headList, unsigned int lineNumber);
 void _mulInt(stack_t **headList, unsigned int lineNumber);
 void _modInt(stack_t **headList, unsigned int lineNumber);
-void readBuffer(FILE *fd, char *buffer, ssize_t inputln);
+void readBuffer(FILE *fd, char *buffer);
 
 /* GET OP FUNCTION */
 

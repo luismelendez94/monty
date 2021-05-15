@@ -4,21 +4,26 @@
  * readBuffer - Read buffer line by line
  * @fd: File descriptor
  * @buffer: Buffer
- * @inputln: File line read
  *
  */
-void readBuffer(FILE *fd, char *buffer, ssize_t inputln)
+void readBuffer(FILE *fd, char *buffer)
 {
 	char *delim = " \n\t", *token = NULL;
 	stack_t *head = NULL;
 	int line = 1;
 	size_t getSize = 1024;
 
-	while (inputln != EOF)
+	while (getline(&buffer, &getSize, fd) != EOF)
 	{
 		token = strtok(buffer, delim);
 
-		if (token[0] != '#' || token != NULL)
+		if (token == NULL)
+		{
+			line++;
+			continue;
+		}
+
+		if (token[0] != '#')
 		{
 			if (strcmp(token, "push") == 0)
 			{
@@ -29,7 +34,9 @@ void readBuffer(FILE *fd, char *buffer, ssize_t inputln)
 			else
 			{
 				if (opfunc(token) != 0)
+				{
 					opfunc(token)(&head, line);
+				}
 				else
 				{
 					freeList(head);
@@ -39,7 +46,6 @@ void readBuffer(FILE *fd, char *buffer, ssize_t inputln)
 			}
 		}
 		line++;
-		inputln = getline(&buffer, &getSize, fd);
 	}
 	freeList(head);
 }
