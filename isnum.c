@@ -15,7 +15,7 @@ int _isanum(char *str, int line)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line);
 		exit(EXIT_FAILURE);
-    }
+	}
 
 	for (index = 0; str[index] != '\0'; index++)
 	{
