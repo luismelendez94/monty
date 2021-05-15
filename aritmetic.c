@@ -12,7 +12,7 @@ void _addInt(stack_t **headList, unsigned int lineNumber)
 
 	if (*headList == NULL || (*headList)->next == NULL)
 	{
-		printf("L%d: can't add, stack too short\n", lineNumber);
+		fprintf(stderr, "L%d: can't add, stack too short\n", lineNumber);
 		exit(EXIT_FAILURE);
 	}
 
@@ -37,7 +37,7 @@ void _subInt(stack_t **headList, unsigned int lineNumber)
 
 	if (*headList == NULL || (*headList)->next == NULL)
 	{
-		printf("L%d: can't add, stack too short\n", lineNumber);
+		fprintf(stderr, "L%d: can't add, stack too short\n", lineNumber);
 		exit(EXIT_FAILURE);
 	}
 
@@ -62,7 +62,7 @@ void _divInt(stack_t **headList, unsigned int lineNumber)
 
 	if (*headList == NULL || (*headList)->next == NULL)
 	{
-		printf("L%d: can't add, stack too short\n", lineNumber);
+		fprintf(stderr, "L%d: can't add, stack too short\n", lineNumber);
 		exit(EXIT_FAILURE);
 	}
 
@@ -71,7 +71,7 @@ void _divInt(stack_t **headList, unsigned int lineNumber)
 
 	if (temp2->n == 0)
 	{
-		printf("L%d: division by zero\n", lineNumber);
+		fprintf(stderr, "L%d: division by zero\n", lineNumber);
 		exit(EXIT_FAILURE);
 	}
 
@@ -93,7 +93,7 @@ void _mulInt(stack_t **headList, unsigned int lineNumber)
 
 	if (*headList == NULL || (*headList)->next == NULL)
 	{
-		printf("L%d: can't add, stack too short\n", lineNumber);
+		fprintf(stderr, "L%d: can't add, stack too short\n", lineNumber);
 		exit(EXIT_FAILURE);
 	}
 
@@ -118,7 +118,7 @@ void _modInt(stack_t **headList, unsigned int lineNumber)
 
 	if (*headList == NULL || (*headList)->next == NULL)
 	{
-		printf("L%d: can't add, stack too short\n", lineNumber);
+		fprintf(stderr, "L%d: can't add, stack too short\n", lineNumber);
 		exit(EXIT_FAILURE);
 	}
 
@@ -127,7 +127,7 @@ void _modInt(stack_t **headList, unsigned int lineNumber)
 
 	if (temp2->n == 0)
 	{
-		printf("L%d: division by zero\n", lineNumber);
+		fprintf(stderr, "L%d: division by zero\n", lineNumber);
 		exit(EXIT_FAILURE);
 	}
 
