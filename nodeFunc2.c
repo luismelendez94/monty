@@ -10,14 +10,14 @@ void _pchar(stack_t **head, unsigned int line)
 {
 	int n = (*head)->n;
 
-	if (!head)
+	if (!head || head == NULL)
 	{
-		printf("L%d: can't pchar, stack empty\n", line);
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", line);
 		exit(EXIT_FAILURE);
 	}
 
 	if (n > 127 || n < 0)
-		printf("L%d: can't pchar, value out of range\n", line);
+		fprintf(stderr, "L%d: can't pchar, value out of range\n", line);
 	else
 		printf("%c\n", toascii(n));
 }
