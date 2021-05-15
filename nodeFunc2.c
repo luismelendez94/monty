@@ -9,15 +9,15 @@
 void _pchar(stack_t **head, unsigned int line)
 {
 	int n = (*head)->n;
-	char charValue = n + '0';
 
 	if (!head)
 	{
-		printf("L%d: can't pchar, stack empty", line);
+		printf("L%d: can't pchar, stack empty\n", line);
 		exit(EXIT_FAILURE);
 	}
+
 	if (n > 127 || n < 0)
-		printf("L%d: can't pchar, value out of range", line);
+		printf("L%d: can't pchar, value out of range\n", line);
 	else
-		printf("%c\n", charValue);
+		printf("%c\n", toascii(n));
 }
